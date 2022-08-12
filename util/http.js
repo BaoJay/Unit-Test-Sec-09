@@ -13,6 +13,7 @@ export async function sendDataRequest(data) {
 
   if (!response.ok) {
     throw new HttpError(response.status, 'Sending the request failed.', responseData);
+    // throw new Error('Sending the request failed')
   }
 
   return responseData;
