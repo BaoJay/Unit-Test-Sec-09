@@ -33,7 +33,7 @@ describe('HttpError Class', () => {
         expect(error6).toBeInstanceOf(HttpError)
     })
 
-    it('has constructor working correctly', () => {
+    it('should contain the provided StatusCode, Message and Data', () => {
         expect(error41.statusCode).toEqual(num);
         expect(error41.message).toEqual(obj);
         expect(error41.data).toEqual(string);
@@ -49,6 +49,24 @@ describe('HttpError Class', () => {
         expect(error44.statusCode).toEqual(num);
         expect(error44.message).toEqual(string);
         expect(error44.data).toEqual(obj);
+    })
+
+    it('should contain undefined as status code, if no status code is provided', () => {
+        expect(error1.statusCode).toBeUndefined();
+        expect(error1.message).toBeUndefined();
+        expect(error1.data).toBeUndefined();
+    })
+
+    it('should contain undefined as message, if no message is provided', () => {
+        expect(error2.statusCode).toBe(num);
+        expect(error2.message).toBeUndefined();
+        expect(error2.data).toBeUndefined();
+    })
+
+    it('should contain undefined as data, if no data is provided', () => {
+        expect(error3.statusCode).toBe(num)
+        expect(error3.message).toBe(obj)
+        expect(error3.data).toBeUndefined();
     })
 })
 
